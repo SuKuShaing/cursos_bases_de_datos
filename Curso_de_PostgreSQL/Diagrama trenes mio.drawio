@@ -1,0 +1,25 @@
+<mxfile host="app.diagrams.net" modified="2024-04-11T18:53:46.726Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36" etag="7wQxwaSYlLYXU7ZCoT8b" version="24.2.3" type="device">
+  <diagram name="Página-1" id="5ddGPSW1TZbXKsmy843J">
+    <mxGraphModel dx="1750" dy="1005" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="edt5BjCfWI6PlzMyoKIE-1" value="Pasajero" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="160" y="110" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="edt5BjCfWI6PlzMyoKIE-2" value="Estación" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="590" y="390" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="edt5BjCfWI6PlzMyoKIE-3" value="Tren" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="160" y="370" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="edt5BjCfWI6PlzMyoKIE-4" value="Viaje" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="130" y="220" width="180" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="edt5BjCfWI6PlzMyoKIE-5" value="Viaje" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="340" y="380" width="180" height="80" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

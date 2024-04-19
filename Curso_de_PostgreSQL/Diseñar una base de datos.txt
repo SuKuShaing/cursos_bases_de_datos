@@ -1,0 +1,5 @@
+1. Saber cuales son los objetos tangibles del sistema
+
+2. Cada entidad debe tener un identificador único (clave primaria[PK]), y sus atributos: nombre, dirección, teléfono, etc.
+
+3. Cuando crear una tabla de relación, cuando una entidad hace una acción sobre otra entidad.
