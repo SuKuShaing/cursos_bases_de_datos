@@ -1,4 +1,4 @@
--- PL/pgSQL: PROCEDURAL LENGUAJE
+-- PL/PgSQL: PROCEDURAL LENGUAJE
 
 -- Se puede insertar código en una función PL	
 
