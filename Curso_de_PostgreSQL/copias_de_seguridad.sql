@@ -6,7 +6,7 @@
 
 -- Tipos de formatos
 "
-Custom -> Un formato propio de Postgres
+Custom -> Un formato propio de Postgres -> funciona muy bien con la misma versión desde la que fue exportado
 Tar -> Un archivo comprimido que contiene la estructura de la BD
 Plain -> SQL plano
 Directory -> Estructura sin comprimir
