@@ -15,5 +15,7 @@ SELECT *
 FROM (
 	SELECT ROW_NUMBER() OVER() AS row_id, * -- ROW_NUMBER() le coloca un número a cada fila de la tabla -- OVER() se utiliza con funciones de ventana para determinar el conjunto de filas sobre las que se aplica la función
 	FROM platzi.alumnos
-) AS alumnos_with_row_num
+) AS alumnos_with_row_num -- Este es el alias del subquery
 WHERE row_id = 1;
+-- WHERE row_id < 6;
+-- WHERE row_id BETWEEN 1 AND 5;
