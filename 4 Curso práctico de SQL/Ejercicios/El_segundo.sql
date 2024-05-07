@@ -61,3 +61,12 @@ LIMIT (
 	SELECT COUNT(*)/2
 	FROM platzi.alumnos
 );
+
+
+-- La mejor solución que encontré
+SELECT *
+FROM platzi.alumnos
+OFFSET (
+	SELECT COUNT(*)/2
+	FROM platzi.alumnos
+);
