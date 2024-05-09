@@ -57,3 +57,11 @@ ORDER BY tutor_id;
 
 
 -- Reto: Encontrar cruce de rangos
+
+SELECT numrange(
+	(SELECT min(tutor_id) FROM platzi.alumnos),
+	(SELECT max(tutor_id) FROM platzi.alumnos)
+) * numrange(
+	(SELECT min(carrera_id) FROM platzi.alumnos),
+	(SELECT max(carrera_id) FROM platzi.alumnos)
+)
