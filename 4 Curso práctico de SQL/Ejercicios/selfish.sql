@@ -39,4 +39,4 @@ FROM (
 		INNER JOIN platzi.alumnos AS t
 		ON a.tutor_id = t.id
 	GROUP BY tutor
-);
+) AS alumnos_tutor;
