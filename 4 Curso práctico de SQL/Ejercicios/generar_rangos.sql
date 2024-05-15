@@ -87,3 +87,7 @@ FROM (
 ***
 **
 *
+
+-- Solución del profe
+SELECT LPAD('*', CAST(ORDINALITY AS int), '*')
+FROM generate_series(10, 2, -2) WITH ORDINALITY -- ORDINALITY es para que se genere una columna con el número de la fila	
