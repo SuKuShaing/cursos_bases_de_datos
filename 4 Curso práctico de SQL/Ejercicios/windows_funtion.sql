@@ -68,3 +68,73 @@ WHERE brand_rank < 3
 ORDER BY carrera_id, brand_rank
 -- Ahora si funciona porque el campo brand_rank ya existe en el subquery y se puede hacer el filtro
 -- ahora viene ordenado por carrera_id y después por brand_rank
+
+
+
+-- Más ejemplos de la siguiente clase
+
+SELECT ROW_NUMBER() OVER() AS row_id, *
+FROM platzi.alumnos;
+-- Asigna un número de fila a cada fila, sin importar el orden, solo asigna un número de fila a cada una
+-- Coincide el número de fila con el id del alumno
+
+
+SELECT ROW_NUMBER() OVER(ORDER BY fecha_incorporacion) AS row_id, *
+FROM platzi.alumnos;
+-- Ahora asigna un número de fila a cada fila, pero ordenado por fecha de incorporación
+-- El número de fila (que está ordenado) no coincide con el id del alumno
+
+
+SELECT ROW_NUMBER() OVER() AS row_id, *
+FROM platzi.alumnos
+ORDER BY fecha_incorporacion;
+-- En este caso, primero asigna un número de fila a cada fila y luego ordena por fecha de incorporación
+-- por ende el número de fila y el id coinciden, pero el orden es por fecha de incorporación
+-- entonces no está ordenado
+
+
+SELECT FIRST_VALUE(colegiatura) OVER() AS row_id, *
+FROM platzi.alumnos;
+-- En la primera columna coloca el valor de la primera fila (first_value) de la colegiatura, 5000, y lo repite en todas las filas de toda la tabla
+
+
+SELECT FIRST_VALUE(colegiatura) OVER(PARTITION BY carrera_id) AS row_id, *
+FROM platzi.alumnos;
+-- Ahora está particionado por carrera_id, entonces del grupo de carrera_id 1, el valor de la primera fila es 4800 y lo repite en todas las filas de grupo de carrera_id 1
+-- en el carrera_id 2, el valor de la primera fila es 2300 y lo repite en todas las filas de grupo de carrera_id 2
+
+
+SELECT LAST_VALUE(colegiatura) OVER(PARTITION BY carrera_id) AS row_id, *
+FROM platzi.alumnos;
+-- lo mismo que lo anterior, pero ahora toma el valor de la última fila del grupo de carrera_id y lo repite en todas las filas del grupo
+
+
+SELECT NTH_VALUE(colegiatura, 3) OVER(PARTITION BY carrera_id) AS row_id, *
+FROM platzi.alumnos;
+-- NTH_VALUE (valor enésimo) toma el valor de la fila que le indiquemos, en este caso, le indicamos la tercera fila
+-- Toma el valor de la tercera fila del grupo de carrera_id y lo repite en todas las filas del grupo
+
+
+SELECT *,
+	RANK() OVER(PARTITION BY carrera_id ORDER BY colegiatura DESC) AS colegiatura_rank
+FROM platzi.alumnos
+ORDER BY carrera_id, colegiatura_rank;
+-- Como ya vimos genera el ranking los primero 4 iguales valores tienen el ranking 1, el siguiente valor tiene el ranking 5
+-- Tiene gaps, espacios entre posiciones, porque hay 4 valores con el mismo ranking 1, entonces el siguiente valor no es 2, es 5
+
+
+SELECT *,
+	DENSE_RANK() OVER(PARTITION BY carrera_id ORDER BY colegiatura DESC) AS colegiatura_rank
+FROM platzi.alumnos
+ORDER BY carrera_id, colegiatura_rank;
+-- DENSE_RANK no tiene gaps, no hay espacios entre posiciones, si hay 4 valores con el mismo ranking 1, el siguiente valor del ranking es 2
+-- y todos los similares tienen el 2 en el ranking
+
+
+SELECT *,
+	PERCENT_RANK() OVER(PARTITION BY carrera_id ORDER BY colegiatura DESC) AS colegiatura_rank
+FROM platzi.alumnos
+ORDER BY carrera_id, colegiatura_rank;
+-- Entrega el porcentaje como decimal, el 0 es el primer valor, el 1 es el último valor
+-- Calcula el porcentaje de rango, el porcentaje de la posición de la fila en el ranking
+-- usa esta fórmula (rank - 1)/(total rows - 1)
